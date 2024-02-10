@@ -43,6 +43,7 @@ certbot_create_command: >-
   {{ '--post-hook /etc/letsencrypt/renewal-hooks/post/start_services'
     if certbot_create_standalone_stop_services and certbot_create_method == 'standalone'
   else '' }}
+  --dns-cloudflare-propagation-seconds 30
 
 certbot_create_standalone_stop_services:
   - nginx
